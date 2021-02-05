@@ -17,10 +17,13 @@ app.use(express.static("public"));
 
 
 // front end route
-const htmlRouter = require("./routes/html-routes")
+const htmlRouter = require("./routes/html-routes");
+// back end route
+const apiRouter = require("./routes/api-routes");
 
 // invoke routes
-htmlRouter(app)
+htmlRouter(app);
+apiRouter(app);
 
 // connect to database
 mongoose.connect("mongodb://localhost/workout", {
