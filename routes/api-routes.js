@@ -3,8 +3,11 @@ const Workout = require("../models/workout");
 
 module.exports = (app) => {
     app.post("/api/workouts", ({ body }, res) => {
-        Workout.create(body)
+        console.log(body)
+        Workout.create()
+        
         .then(data => {
+            console.log(data)
             res.json(data);
         })
         .catch(err => {
