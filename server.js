@@ -1,5 +1,6 @@
 // require dependencies
 const express = require("express");
+const logger = require("morgan");
 const mongoose = require("mongoose");
 
 // set up PORT
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 // set up express
 const app = express();
 
+app.use(logger("dev"));
 // set up express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -41,9 +41,13 @@ const workoutSchema = new Schema({
         },
     }],
     day: {
-    type: Date,
-    default: Date.now
-}
+        type: Date,
+        default: Date.now
+    },
+    totalDuration: {
+        type: Number,
+        required: "Total Duration"
+    }
 
 });
 
