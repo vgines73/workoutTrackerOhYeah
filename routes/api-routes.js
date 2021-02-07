@@ -1,10 +1,11 @@
+// const db = require("../models/index")
 const Workout = require("../models/workout")
 // look for public/api.js for all fetch requests. 
 module.exports = (app) => {
     // to find last workout 
     app.get("/api/workouts", (req, res) => {
           // console.log(req.body)
-        Workout.find({})
+        Workout.find()
         .then(data => {
             res.json(data);
         })
