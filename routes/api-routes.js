@@ -16,13 +16,21 @@ module.exports = (app) => {
     // to add update an exercise by id
     app.put("/api/workouts/:id", (req, res) => {
         console.log(req.body)
-        Workout.updateOne(req.body, {
-            where: {
-                id: req.body.id,
+        Workout.updateOne(
+            {
+                // where: {
+                    _id: req.params.id,
             },
-        })
+            {
+                $set: {
+                    exercises: req.body.exercises,
+                    day: Date.now(),
+                    totalDuration: req.body.totalDuration
+                }
+            },
+        )
         .then(data => {
-            console.log(data)
+            // console.log(data)
             res.json(data);
         })
         .catch(err => {
@@ -36,7 +44,7 @@ module.exports = (app) => {
         Workout.create({})
         
         .then(data => {
-            console.log(data)
+            // console.log(data)
             res.json(data);
         })
         .catch(err => {
@@ -44,9 +52,17 @@ module.exports = (app) => {
         });
     });
       
-    // app.get("/api/workouts/range"), (req, res) => {
-    //     console.log(res)
-    // }
+    app.get("/api/workouts/range"), (req, res) => {
+        Workout.create({})
+        
+        .then(data => {
+            // console.log(data)
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+    }
 
 };
 
