@@ -1,11 +1,10 @@
-// const db = require("../models")
 const Workout = require("../models/workout")
 // look for public/api.js for all fetch requests. 
 module.exports = (app) => {
     // to find last workout 
     app.get("/api/workouts", (req, res) => {
           // console.log(req.body)
-        Workout.find()
+        Workout.find({})
         .then(data => {
             res.json(data);
         })
@@ -16,10 +15,9 @@ module.exports = (app) => {
     // to add update an exercise by id
     app.put("/api/workouts/:id", (req, res) => {
         console.log(req.body)
-        Workout.updateOne(
+        Workout.updateOne(req.body, 
             {
-                // where: {
-                    _id: req.params.id,
+                id: req.params.id,
             },
             {
                 $set: {
@@ -27,7 +25,7 @@ module.exports = (app) => {
                     day: Date.now(),
                     totalDuration: req.body.totalDuration
                 }
-            },
+            }
         )
         .then(data => {
             // console.log(data)
@@ -42,7 +40,6 @@ module.exports = (app) => {
     app.post("/api/workouts", (req, res) => {
         // console.log(req.body)
         Workout.create({})
-        
         .then(data => {
             // console.log(data)
             res.json(data);
@@ -53,15 +50,16 @@ module.exports = (app) => {
     });
       
     app.get("/api/workouts/range"), (req, res) => {
-        Workout.create({})
+        // console.log(res)
+        Workout.find({})
         
         .then(data => {
-            // console.log(data)
+            console.log(data)
             res.json(data);
         })
         .catch(err => {
             res.status(400).json(err);
-        });
+        }); 
     }
 
 };
