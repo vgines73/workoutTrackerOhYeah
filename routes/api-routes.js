@@ -15,10 +15,10 @@ module.exports = (app) => {
     });
     // to add update an exercise by id
     app.put("/api/workouts/:id", (req, res) => {
-        console.log(req.body)
+        console.log(req.body, req.params.id)
         Workout.updateOne(req.body, 
             {
-                id: req.params.id,
+                _id: req.params.id,
             },
             {
                 $set: {
