@@ -47,6 +47,9 @@ const workoutSchema = new Schema({
     totalDuration: {
         type: Number,
         required: "Total Duration"
+    },
+    _id: {
+        type: String,
     }
 
 });
