@@ -1,4 +1,4 @@
-// const db = require("../models/index")
+
 const Workout = require("../models/workout")
 // look for public/api.js for all fetch requests.
 module.exports = (app) => {
@@ -25,13 +25,14 @@ module.exports = (app) => {
                     
                     exercises: req.body.exercises,
                     day: Date.now(),
-                    totalDuration: req.body.totalDuration
+                   
                 }
             }
         )
         .then(data => {
             // console.log(data)
             res.json(data);
+           
         })
         .catch(err => {
             res.status(400).json(err);
@@ -41,10 +42,12 @@ module.exports = (app) => {
     // to create a workout
     app.post("/api/workouts", (req, res) => {
         // console.log(req.body, req.params)
-        Workout.create()
+        Workout.create({})
         .then(data => {
-            console.log(data)
-            res.json(data);
+           // console.log(data)
+           res.json(data);
+           res.send("hello from create post")
+           
         })
         .catch(err => {
             res.status(400).json(err);
