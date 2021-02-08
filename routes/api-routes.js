@@ -15,19 +15,16 @@ module.exports = (app) => {
     });
     // to add update an exercise by id
     app.put("/api/workouts/:id", (req, res) => {
-        //console.log(req.body, req.params.id)
-        Workout.updateOne(
+        console.log(req.body, req.params.id)
+        Workout.findOneAndUpdate(
+            {_id: req.params.id},
             {
-                _id: req.params.id,
+                $push: { 
+                    exercises: req.body
+                },
+                
             },
-            {
-                $set: {
-
-                    exercises: req.body.exercises,
-                    day: Date.now(),
-
-                }
-            }
+            {new: true},
         )
             .then(data => {
                 // console.log(data)
@@ -42,7 +39,12 @@ module.exports = (app) => {
     // to create a workout
     app.post("/api/workouts", (req, res) => {
         // console.log(req.body, req.params)
-        Workout.create({})
+        Workout.create(
+            {
+                exercises: req.body.exercises,
+                day: Date.now(),
+            },
+            )
             .then(data => {
                 console.log("DATA: " + data)
                 res.json(data);
