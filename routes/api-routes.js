@@ -6,6 +6,14 @@ module.exports = (app) => {
     app.get("/api/workouts", (req, res) => {
         // console.log(req.body)
         Workout.find()
+        Workout.aggregate([
+            {"$addFields": {
+                "totalDuration":{
+                    "$sum": "$exercises.duration"
+                }
+            }}
+        ])
+            .sort({ date: -1 })
             .then(data => {
                 res.json(data);
             })
@@ -57,9 +65,15 @@ module.exports = (app) => {
     });
 
     app.get("/api/workouts/range", (req, res) => {
-        // console.log(res)
         // res.send("HELLO");
-        Workout.find({}).then(data => {
+        Workout.find({})
+        Workout.aggregate([
+            {"$addFields": {
+                "totalDuration":{
+                    "$sum": "$exercises.duration"
+                }
+            }}
+        ]).then(data => {
             console.log(data)
             res.json(data);
         })
