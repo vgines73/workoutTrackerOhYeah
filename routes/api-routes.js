@@ -14,6 +14,7 @@ module.exports = (app) => {
                 }
             }}
         ])
+        // sort date in descending order 
         .sort({ date: -1 })
         .then(data => {
             res.json(data);
@@ -33,6 +34,7 @@ module.exports = (app) => {
                 },
                 
             },
+            // returns the new updated value
             {new: true},
         )
         .then(data => {
@@ -76,7 +78,8 @@ module.exports = (app) => {
             }}
         ])
         // to obtain the last 7 exercises.
-        .sort({ date: -1 }).limit(7)
+        // sort date in descending order; limit 7 exercises, sort day in ascending order
+        .sort({ date: -1 }).limit(7).sort({ day: 1 })
         .then(data => {
             // console.log(data)
             res.json(data);
