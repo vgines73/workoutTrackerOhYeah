@@ -18,23 +18,22 @@ const workoutSchema = new Schema({
             type: Number,
             trim: true,
             required: "Duration in Minutes"
-
         },
         weight: {
             type: Number,
-
+            trim: true,
         },
         reps: {
             type: Number,
-
+            trim: true,
         },
         sets: {
             type: Number,
-
+            trim: true,
         },
         distance: {
             type: Number,
-
+            trim: true,
         },
     }],
     day: {
@@ -42,7 +41,8 @@ const workoutSchema = new Schema({
         default: Date.now
     },
     totalDuration: {
-        type: Number
+        type: Number,
+        trim: true,
     }
 
 });
