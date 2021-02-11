@@ -47,7 +47,6 @@ Scroll down to the questions sections and click my deployed link. It will take t
 ![screencapture-mysterious-wildwood-43781-herokuapp-stats-2021-02-10-14_58_36](https://user-images.githubusercontent.com/71681031/107589751-86d38e80-6bbb-11eb-8ed7-6bbfd8c02433.png)
 
 
-
 ## Demo:
 
 

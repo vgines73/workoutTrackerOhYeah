@@ -5,8 +5,8 @@ module.exports = (app) => {
     // to find last workout 
     app.get("/api/workouts", (req, res) => {
         // console.log(req.body)
-        Workout.find()
-        // aggregate and ust $addFields for total duration and use $sum to add total duration for the day. 
+        Workout.find({})
+        // aggregate and just $addFields for total duration and use $sum to add total duration for the day. 
         Workout.aggregate([
             {"$addFields": {
                 "totalDuration":{
@@ -68,7 +68,6 @@ module.exports = (app) => {
 
     app.get("/api/workouts/range", (req, res) => {
         // res.send("HELLO");
-        Workout.find({})
         // aggregate and just $addFields for total duration and use $sum to add total duration for the day. 
         Workout.aggregate([
             {"$addFields": {
