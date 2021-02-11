@@ -48,10 +48,10 @@ Scroll down to the questions sections and click my deployed link. It will take t
 
 
 ## Demo:
-
+click here for live demo: https://drive.google.com/file/d/1Rm3EMtWg9PSDO4ZTC0mVwMv5GWVaPMfq/view
 
 ## Challenges: 
-Lots of challenges in this assignment. Issues with the routes; thought my routes were wrong. Anytime I added or completed an exercise, it would return back an emptry array and database would show zero values. Updating was difficult, proper syntax, but after reading the documents it wasn't too bad. Spent hours with a classmate trying to figure out what was wrong but we were able to figure it out in the end. Another issue was deployment. I followed the steps correctly. Spent time with the TA's to figure out what was the problem. After taking some time off to clear my head realized that atlas didn't like the password I created. After that, deployment is fully functional with no errors.
+Lots of challenges in this assignment. Issues with the routes; thought my routes were wrong. Anytime I added or completed an exercise, it would return back an emptry array and database would show zero values. Updating was difficult, proper syntax, but after reading the documents it wasn't too bad. Spent hours with a classmate trying to figure out what was wrong but we were able to figure it out in the end. Another issue was deployment. I followed the steps correctly. Spent time with the TA's to figure out what was the problem. After taking some time off to clear my head realized that atlas didn't like the password I created. After that, deployment is fully functional with no errors. So after I was done realized it wasn't showing the new workouts anymore in dashboard. I had a syntax error with my sort() in the range, had date instead of day. 
 
 ---
 ## Questions:
