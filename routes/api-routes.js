@@ -31,6 +31,7 @@ module.exports = (app) => {
             {
                 $push: { 
                     exercises: req.body
+                    
                 },
                 
             },
@@ -73,12 +74,12 @@ module.exports = (app) => {
             {"$addFields": {
                 "totalDuration":{
                     "$sum": "$exercises.duration"
-                }
-            }}
+                }}
+            }
         ])
         // to obtain the last 7 exercises.
         // sort date in descending order; limit 7 exercises, sort day in ascending order
-        .sort({ date: -1 }).limit(7).sort({ day: 1 })
+        .sort({ day: -1 }).limit(7).sort({ day: 1 })
         .then(data => {
             // console.log(data)
             res.json(data);
